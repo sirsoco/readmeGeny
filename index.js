@@ -15,25 +15,26 @@ function promptUser() {
     inquirer.prompt([
         {
           type: "input",
-          message: "What is your user name?",
-          name: "username"
+          message: "Name of repository?",
+          name: "title"
         }
       ,
-      {
-        type: "input",
-        message: "What is your user name?",
-        name: "username"
-  },
-    {
-      type: "input",
-      message: "What is your user name?",
-      name: "username"
-    }
+     // {
+       // type: "choice",
+        //message: "What is your user name?",
+       // name: "username",
+        //list: 
+ // }
+  
   ])
       // generate a .md file 
     .then( answers => {
     console.log('commit#1')
-    fs.appendFile( 'ReadMe.md' , answers , (err) => {
+    fs.writeFile( 'ReadMe.md' ,   '#' + JSON.stringify(answers.title)  , (err) => {
+      
+// write title of file
+
+// throw err 
       if (err) throw err ;
         console.log('The  "data to append" was appended to file!');
     });
